@@ -20,7 +20,7 @@ const (
 )
 
 func init() {
-	caddy.RegisterModule(&DNSRange{})
+	caddy.RegisterModule(new(DNSRange))
 }
 
 // DNSRange provides a range of IP addresses associated with a DNS name.
