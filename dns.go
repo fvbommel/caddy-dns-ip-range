@@ -23,8 +23,8 @@ func init() {
 	caddy.RegisterModule(new(DNSRange))
 }
 
-// DNSRange provides a range of IP addresses associated with a DNS name.
-// Each range will only contain a single IP.
+// This module provides a set of single-IP prefixes (CIDRs) containing all
+// IP addresses associated with a DNS name.
 type DNSRange struct {
 	// A list of DNS names to look up.
 	Hosts []string `json:"hosts,omitempty"`
