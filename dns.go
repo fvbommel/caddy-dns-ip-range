@@ -177,13 +177,14 @@ func (d *DNSRange) lookupHostPrefixes(host string) (prefixes []netip.Prefix, err
 		}
 	}
 
+	// Sanity check.
 	if len(prefixes) == 0 && cap(prefixes) != 0 {
 		return nil, errors.New("all returned IP addresses were invalid")
 	}
 
 	d.logger.Debug("DNS results",
 		zap.String("host", host),
-		zap.Strings("addresses", ips))
+		logAddresses("addresses", prefixes))
 
 	return prefixes, nil
 }
